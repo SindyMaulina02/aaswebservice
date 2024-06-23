@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"mahasiswa/controller/auth"
-	"mahasiswa/controller/mahasiswa"
-	"mahasiswa/controller/kelas"
-	"mahasiswa/database"
 	"log"
+	"mahasiswa/controller/auth"
+	"mahasiswa/controller/kelas"
+	"mahasiswa/controller/mahasiswa"
+	"mahasiswa/database"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -35,7 +35,7 @@ func main() {
 	router.HandleFunc("/kelas/{id}", auth.JWTAuth(kelas.DeleteKelas)).Methods("DELETE")
 
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"http://127.0.0.1:5500"},
+		AllowedOrigins: []string{"*"},
 		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE"},
 		AllowedHeaders: []string{"Content-Type", "Authorization"},
 		Debug: true,
@@ -43,6 +43,6 @@ func main() {
 
 	handler := c.Handler(router)
 
-	fmt.Println("Server is running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", handler))
+	fmt.Println("Server is running on http://localhost:8018")
+	log.Fatal(http.ListenAndServe(":8018", handler))
 }

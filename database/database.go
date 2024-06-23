@@ -12,7 +12,7 @@ var DB *sql.DB
 
 func InitDB() {
     var err error
-    connStr := "root:@tcp(localhost:3306)/dbwebservice" // Ganti "root" dengan nama pengguna MySQL Anda jika diperlukan
+    connStr := "root:p3ws@tcp(localhost:3306)/db_websindy" // Ganti "root" dengan nama pengguna MySQL Anda jika diperlukan
     DB, err = sql.Open("mysql", connStr)
     if err != nil {
         log.Fatal(err)
