@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahasiswa List</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #0c5c25;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 2rem;
+            position: fixed;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #0f6704;
+        }
+
+        .container {
+            margin-left: 250px;
+            padding: 2rem;
+            width: calc(100% - 250px);
+        }
+
+        .header {
+            text-align: center;
+            color: #0c6420;
+            margin-bottom: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #088429;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #10620e;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #134d2d;
+        }
+
+        .btn-container {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="kelas.html">Classes</a>
+        <a href="mahasiswa.html">Mahasiswa</a>
+    </div>
+    <div class="container">
+        <h1 class="header">Mahasiswa List</h1>
+        <div class="btn-container">
+            <a href="addmahasiswa.html" class="btn">Add New Mahasiswa</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>NIM</th>
+                    <th>Jurusan</th>
+                    <th>User ID</th>
+                    <th>Kelas ID</th>
+                </tr>
+            </thead>
+            <tbody id="mahasiswaTableBody">
+                <!-- Mahasiswa will be loaded here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("https://130.162.195.228/mhs714220018/mahasiswa")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const tableBody = document.getElementById('mahasiswaTableBody');
+
+                    data.forEach(mahasiswa => {
+                        const row = tableBody.insertRow();
+                        row.innerHTML = `
+                            <td>${mahasiswa.id}</td>
+                            <td>${mahasiswa.nama}</td>
+                            <td>${mahasiswa.nim}</td>
+                            <td>${mahasiswa.jurusan}</td>
+                            <td>${mahasiswa.user_id}</td>
+                            <td>${mahasiswa.kelas_id}</td>
+                        `;
+                    });
+                })
+                .catch(error => {
+                    console.error("There has been a problem with your fetch operation:", error);
+                });
+        });
+    </script>
+</body>
+</html>
