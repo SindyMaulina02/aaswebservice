@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: webservice_sindy
+  title: asswebservice
   version: 1.0.0
 servers:
-  - url: http://localhost:8080
+  - url: https://130.162.195.228/mhs714220018
 components:
   securitySchemes:
     bearerAuth:
@@ -16,15 +16,24 @@ paths:
         - default
       summary: regis
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
-              example:
-                user_id: 1
-                username: sindy
-                email: sindy@example.com
-                password: securepassword123
+              properties:
+                user_id:
+                  type: integer
+                  example: 1
+                username:
+                  type: string
+                  example: sindy
+                email:
+                  type: string
+                  example: sindy@example.com
+                password:
+                  type: string
+                  example: securepassword123
       responses:
         '200':
           description: Successful response
@@ -36,13 +45,18 @@ paths:
         - default
       summary: login
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
-              example:
-                username: sindymaulina
-                password: securepassword123
+              properties:
+                username:
+                  type: string
+                  example: sindymaulina
+                password:
+                  type: string
+                  example: securepassword123
       responses:
         '200':
           description: Successful response
@@ -63,13 +77,18 @@ paths:
         - default
       summary: kelas
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
-              example:
-                nama_kelas: pemograman
-                semester: 4
+              properties:
+                nama_kelas:
+                  type: string
+                  example: pemrograman
+                semester:
+                  type: integer
+                  example: 4
       security:
         - bearerAuth: []
       responses:
@@ -78,25 +97,46 @@ paths:
           content:
             application/json: {}
   /kelas/{id}:
-    put:
+    get:
       tags:
         - default
-      summary: kelas
+      summary: Get kelas by ID
       parameters:
-        - in: path
-          name: id
+        - name: id
+          in: path
           required: true
           schema:
             type: integer
-          description: ID of the class
+          example: 11
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - default
+      summary: Update kelas by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 11
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
-              example:
-                nama_kelas: Kelas Diperbarui
-                semester: 2
+              properties:
+                nama_kelas:
+                  type: string
+                  example: pemrograman
+                semester:
+                  type: integer
+                  example: 9
       security:
         - bearerAuth: []
       responses:
@@ -107,14 +147,14 @@ paths:
     delete:
       tags:
         - default
-      summary: kelas
+      summary: Delete kelas by ID
       parameters:
-        - in: path
-          name: id
+        - name: id
+          in: path
           required: true
           schema:
             type: integer
-          description: ID of the class
+          example: 11
       security:
         - bearerAuth: []
       responses:
@@ -123,28 +163,6 @@ paths:
           content:
             application/json: {}
   /mahasiswa:
-    post:
-      tags:
-        - default
-      summary: mahasiswa
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                nama: sindy maulina
-                nim: '12345679'
-                jurusan: Teknik Informatika
-                user_id: 2
-                kelas_id: 2
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
     get:
       tags:
         - default
@@ -154,29 +172,89 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /mahasiswa/{id}:
-    put:
+    post:
       tags:
         - default
       summary: mahasiswa
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-          description: ID of the student
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
-              example:
-                nama: sindy maulina
-                nim: '12345610'
-                jurusan: Teknik Informatika
-                user_id: 2
-                kelas_id: 2
+              properties:
+                nama:
+                  type: string
+                  example: sindy m
+                nim:
+                  type: string
+                  example: '0333333'
+                jurusan:
+                  type: string
+                  example: Teknik Informatika
+                user_id:
+                  type: integer
+                  example: 1
+                kelas_id:
+                  type: integer
+                  example: 1
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /mahasiswa/{id}:
+    get:
+      tags:
+        - default
+      summary: Get mahasiswa by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 12
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - default
+      summary: Update mahasiswa by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 12
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nama:
+                  type: string
+                  example: sindy maulina
+                nim:
+                  type: string
+                  example: '12345610'
+                jurusan:
+                  type: string
+                  example: Teknik Informatika
+                user_id:
+                  type: integer
+                  example: 2
+                kelas_id:
+                  type: integer
+                  example: 2
       security:
         - bearerAuth: []
       responses:
@@ -187,14 +265,14 @@ paths:
     delete:
       tags:
         - default
-      summary: mahasiswa
+      summary: Delete mahasiswa by ID
       parameters:
-        - in: path
-          name: id
+        - name: id
+          in: path
           required: true
           schema:
             type: integer
-          description: ID of the student
+          example: 12
       security:
         - bearerAuth: []
       responses:

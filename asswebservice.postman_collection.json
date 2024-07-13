@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "c89462b8-50b7-437d-807f-53dbc31a2626",
+		"name": "asswebservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35948326"
+	},
+	"item": [
+		{
+			"name": "regis",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": 1,\r\n    \"username\": \"sindy\",\r\n    \"email\": \"sindy@example.com\",\r\n    \"password\": \"securepassword123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/regis",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"regis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"sindymaulina\",\r\n    \"password\": \"securepassword123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/login",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kelas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/kelas",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"kelas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kelas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNpbmR5bWF1bGluYSIsImV4cCI6MTcyMDc4NDE1M30.GA2G8gt3FvNXFwwOoDK1zRVfNvSdeYWdv_SAdczSHBQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_kelas\": \"pemograman\",\r\n    \"semester\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/kelas",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"kelas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kelas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNpbmR5bWF1bGluYSIsImV4cCI6MTcyMDc4NDE1M30.GA2G8gt3FvNXFwwOoDK1zRVfNvSdeYWdv_SAdczSHBQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 11,\r\n        \"nama_kelas\": \"pemograman\",\r\n        \"semester\": 9\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/kelas/11",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"kelas",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kelas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNpbmR5bWF1bGluYSIsImV4cCI6MTcyMDc4NDE1M30.GA2G8gt3FvNXFwwOoDK1zRVfNvSdeYWdv_SAdczSHBQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/kelas/11",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"kelas",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mahasiswa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNpbmR5bWF1bGluYSIsImV4cCI6MTcyMDc4NDE1M30.GA2G8gt3FvNXFwwOoDK1zRVfNvSdeYWdv_SAdczSHBQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama\": \"sindy m\",\r\n    \"nim\": \"0333333\",\r\n    \"jurusan\": \"Teknik Informatika\",\r\n    \"user_id\": 1,\r\n    \"kelas_id\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/mahasiswa",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"mahasiswa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mahasiswa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNpbmR5bWF1bGluYSIsImV4cCI6MTcyMDc4NDE1M30.GA2G8gt3FvNXFwwOoDK1zRVfNvSdeYWdv_SAdczSHBQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama\": \"sindy maulina\",\r\n    \"nim\": \"12345610\",\r\n    \"jurusan\": \"Teknik Informatika\",\r\n    \"user_id\": 2,\r\n    \"kelas_id\": 2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/mahasiswa/12",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"mahasiswa",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mahasiswa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNpbmR5bWF1bGluYSIsImV4cCI6MTcyMDc4NDE1M30.GA2G8gt3FvNXFwwOoDK1zRVfNvSdeYWdv_SAdczSHBQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/mahasiswa/12",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"mahasiswa",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mahasiswa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://130.162.195.228/mhs714220018/mahasiswa",
+					"protocol": "https",
+					"host": [
+						"130",
+						"162",
+						"195",
+						"228"
+					],
+					"path": [
+						"mhs714220018",
+						"mahasiswa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
